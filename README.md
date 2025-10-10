@@ -332,3 +332,44 @@ exclude =
     __pycache__,
     venv
 ```
+
+#### Passo 11: Adicionar Pipiline de CI
+
+- Crie o arquivo `ci.yml` em `.github\workflows`
+
+```
+name: CI Pipeline
+
+# Quando executar: a cada push ou pull request
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+            # Fazer checkout do código
+            - name: Fazer checkout do código
+              uses: actions/checkout@v4
+
+            # Configurar Python
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: '3.12.2'
+            
+            - name: Instalar dependências
+              run: pip install -r requirements.txt
+
+            - name: Verificar formatação com Black
+              run: black --check .
+
+            - name: Verificar linting com Flake8
+              run: flake8 .
+
+            - name: Executar testes com pytest
+              run: pytest
+```

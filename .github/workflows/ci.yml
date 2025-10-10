@@ -4,8 +4,18 @@ name: CI Pipeline
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md'       # Ignora mudanças apenas no README
+      - 'docs/**'         # Ignora qualquer arquivo dentro da pasta 'docs'
+      - 'LICENSE'         # Ignora o arquivo de licença
+      - 'CONTRIBUTING.md' # Ignora o guia de contribuição
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - 'README.md'       # Ignora mudanças apenas no README
+      - 'docs/**'         # Ignora qualquer arquivo dentro da pasta 'docs'
+      - 'LICENSE'         # Ignora o arquivo de licença
+      - 'CONTRIBUTING.md' # Ignora o guia de contribuição
 
 jobs:
     ci:
