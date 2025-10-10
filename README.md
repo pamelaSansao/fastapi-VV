@@ -373,3 +373,70 @@ jobs:
             - name: Executar testes com pytest
               run: pytest
 ```
+
+#### **Passo 12: Processo de Code Review no GitHub**
+
+Para praticar o processo de Code Review, siga os passos abaixo:
+
+1. **Fork do Repositório**:
+   - Acesse o repositório principal no GitHub.
+   - Clique no botão "Fork" no canto superior direito para criar uma cópia do repositório no seu GitHub.
+
+2. **Clone o Fork**:
+   - Clone o repositório forkado para sua máquina local:
+
+     ```bash
+     git clone https://github.com/seu-usuario/fastapi-VV.git
+     cd fastapi-VV
+     ```
+
+3. **Crie uma Branch para sua Feature**:
+   - Crie uma nova branch com o nome da sua feature (use seu nome para identificação):
+
+     ```bash
+     git checkout -b feature/seu-nome
+     ```
+
+4. **Adicione um Endpoint Simples**:
+   - No arquivo `app/main.py`, adicione um novo endpoint. Por exemplo:
+
+     ```python
+     @app.get("/hello/{name}")
+     def say_hello(name:str):return {"message":f"Olá, {name}!"}
+     ```
+
+     **Nota:** Este código contém erros intencionais para prática de revisão:
+     - Espaçamento inadequado entre `name:str`.
+     - Retorno na mesma linha da definição da função.
+     - Formatação inconsistente nas aspas e espaços.
+
+5. **Commit e Push**:
+   - Faça commit das suas alterações e envie para o seu repositório forkado:
+
+     ```bash
+     git add .
+     git commit -m "Adiciona endpoint de saudação"
+     git push origin feature/seu-nome
+     ```
+
+6. **Abra um Pull Request (PR)**:
+   - Acesse o repositório original no GitHub.
+   - Clique em "Compare & pull request" para abrir um PR da sua branch `feature/seu-nome` para a branch `main` do repositório original.
+
+7. **Revisar o PR de Outro Aluno**:
+   - O professor irá atribuir um PR para você revisar.
+   - Acesse o PR atribuído, analise o código e deixe comentários ou sugestões.
+   - Após revisar, aprove ou solicite mudanças no PR.
+
+8. **Mesclar o PR**:
+   - Após aprovação, o autor do PR pode mesclar as alterações na branch `main`.
+
+---
+
+**Nota:** Certifique-se de seguir as boas práticas de formatação e linting antes de abrir o PR. Execute os comandos abaixo para garantir que seu código está limpo:
+
+```bash
+black .
+flake8 .
+pytest
+```
