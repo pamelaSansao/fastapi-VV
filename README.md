@@ -1,3 +1,5 @@
+Testando
+
 ### **Guia: Iniciando um Projeto FastAPI com Qualidade de Código**
 
 Este guia irá nos ajudar a criar a estrutura base para nossa aula de Qualidade e Teste de Software. Vamos configurar um ambiente local com as ferramentas essenciais de formatação, linting e teste.
